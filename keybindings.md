@@ -7,9 +7,9 @@
   - <kbd>⌥</kbd>+<kbd>→</kbd> | Send Escape Sequence | `f` | `\e[1;9C`
   - <kbd>⇧</kbd>+<kbd>⌥</kbd>+<kbd>→</kbd> | Send Escape Sequence | `\e[1;10C`
 - Beginning of the line
-  - `⌘←` | send escape sequence | `[H`
+  - `⌘←` | Send Hex Code | `0x01` | Send Escape Sequence | `[H`
 - End of the line
-  - `⌘→` | send escape sequence | `[F`
+  - `⌘→` | Send Hex Code | `0x05` | Send Escape Sequence | `[F`
 - Delete backward character
   - In modern systems, the backspace key is often mapped to the delete character (`0x7f` in ASCII or Unicode)
   - <kbd>Backspace</kbd> | <kbd>←Delete</kbd> | `U+232B` <kbd>⌫</kbd> ~~| Send Hex Code | `0x08`~~
@@ -21,11 +21,11 @@
   - <kbd>Control</kbd>+<kbd>Backspace</kbd> | <kbd>⌃</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x7F` ~~| Send Escape Sequence | `^[[3~`~~
 - Delete backward word
   - <kbd>Option</kbd>+<kbd>←Delete</kbd> | <kbd>⌥</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x1B 0x7F` | Send Escape Sequence | `^[^?`
-  - <kbd>Control</kbd>+<kbd>W</kbd> | <kbd>⌃</kbd>+<kbd>W</kbd> | `^W`
+  - <kbd>Control</kbd>+<kbd>W</kbd> | <kbd>⌃</kbd>+<kbd>W</kbd> | Send Hex Code | `0x1B 0x17` | Send Escape Sequence | `^W`
 - Delete forward word
 - Delete entire line
   - <kbd>Control</kbd>+<kbd>U</kbd> | <kbd>⌃</kbd>+<kbd>U</kbd> | Send Hex Code | `0x15` | Send Escape Sequence | `^U`
-  - <kbd>Command</kbd>+<kbd>←Delete</kbd> | <kbd>⌘</kbd>+<kbd>⌫</kbd> | send hex code | `0x15`
+  - <kbd>Command</kbd>+<kbd>←Delete</kbd> | <kbd>⌘</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x15`
 - Other Delete key
   - ~~<kbd>Control</kbd>+<kbd>Backspace</kbd> | <kbd>⌃</kbd>+<kbd>⌫</kbd> | Send Escape Sequence | `^[[3;5~`~~
   - ~~<kbd>Shift</kbd>+<kbd>Backspace</kbd> | <kbd>⇧</kbd>+<kbd>⌫</kbd> | Send Escape Sequence | `^[[3;2~`~~
