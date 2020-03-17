@@ -27,7 +27,7 @@ uuidgen
 
 - **Delete all characters left of the cursor**
   
-  - <kbd>Command</kbd>+<kbd>←Delete</kbd> | <kbd>⌘</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x18 0x7f`
+  - <kbd>Command</kbd>-<kbd>←Delete</kbd> | <kbd>Control</kbd>-<kbd>x</kbd>+<kbd>←Delete</kbd> | <kbd>⌘</kbd>-<kbd>⌫</kbd> | <kbd>⌃</kbd>-<kbd>x</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x18 0x7f`
   
   - > `0x15` More compatible, but functionality sometimes is to delete the entire line rather than just the characters to the left of the curser. I personally use this and then overwrite my zsh bindkey for `^U` to delete only stuff to the left of the cursor (see below).
     >
@@ -37,11 +37,11 @@ uuidgen
 
 - **Delete all characters right of the cursor**
   
-  - <kbd>Command</kbd>+<kbd>Del→</kbd> | <kbd>Command</kbd>+<kbd>fn</kbd>+<kbd>←Delete</kbd> | <kbd>⌘</kbd>+<kbd>⌦</kbd> | Send Hex Code | `0x0b`
+  - <kbd>Command</kbd>-<kbd>Del→</kbd> | <kbd>Command</kbd>-<kbd>fn</kbd>-<kbd>←Delete</kbd> | <kbd>⌘</kbd>-<kbd>⌦</kbd> | Send Hex Code | `0x0b`
 
 - **Delete one word to left of cursor**
   
-  - <kbd>Option</kbd>+<kbd>←Delete</kbd> | <kbd>⌥</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x1b 0x7f`
+  - <kbd>Option</kbd>-<kbd>←Delete</kbd> | <kbd>⌥</kbd>-<kbd>⌫</kbd> | Send Hex Code | `0x1b 0x7f`
   
   - > `0x1b 0x08` Breaks in Elixir's IEX, seems to work fine everywhere else
     >
@@ -51,35 +51,35 @@ uuidgen
   
 - **Delete one word to right of cursor**
   
-  - <kbd>Option</kbd>+<kbd>Del→</kbd> | <kbd>Option</kbd>+<kbd>fn</kbd>+<kbd>←Delete</kbd> | <kbd>⌥</kbd>+<kbd>⌦</kbd> | Send Hex Code | `0x1b 0x64`
+  - <kbd>Option</kbd>-<kbd>Del→</kbd> | <kbd>Option</kbd>-<kbd>fn</kbd>-<kbd>←Delete</kbd> | <kbd>⌥</kbd>-<kbd>⌦</kbd> | Send Hex Code | `0x1b 0x64`
 
 - **Move cursor to the front of line**
 
-  - <kbd>Command</kbd>+<kbd>Left</kbd> | <kbd>⌘</kbd>+<kbd>←</kbd> | Send Hex Code | `0x01`
+  - <kbd>Command</kbd>-<kbd>Left</kbd> | <kbd>⌘</kbd>-<kbd>←</kbd> | Send Hex Code | `0x01`
   
 - **Move cursor to the end of line**
 
-  - <kbd>Command</kbd>+<kbd>Right</kbd> | <kbd>⌘</kbd>+<kbd>→</kbd> | Send Hex Code | `0x05`
+  - <kbd>Command</kbd>-<kbd>Right</kbd> | <kbd>⌘</kbd>-<kbd>→</kbd> | Send Hex Code | `0x05`
 
 - **Move cursor one word left**
 
-  - <kbd>Option</kbd>+<kbd>Left</kbd> | <kbd>⌥</kbd>+<kbd>←</kbd> | Send Hex Code | `0x1b 0x62`
+  - <kbd>Option</kbd>-<kbd>Left</kbd> | <kbd>Option</kbd>-<kbd>b</kbd> | <kbd>⌥</kbd>-<kbd>←</kbd> | <kbd>⌥</kbd>-<kbd>b</kbd> | Send Hex Code | `0x1b 0x62`
 
 - **Move cursor one word right**
 
-  - <kbd>Option</kbd>+<kbd>Right</kbd> | <kbd>⌥</kbd>+<kbd>→</kbd> | Send Hex Code | `0x1b 0x66`
+  - <kbd>Option</kbd>-<kbd>Right</kbd> | <kbd>Option</kbd>-<kbd>f</kbd> | <kbd>⌥</kbd>-<kbd>→</kbd> | <kbd>⌥</kbd>-<kbd>f</kbd> | Send Hex Code | `0x1b 0x66`
 
 - **Undo**
 
-  - <kbd>Command</kbd>+<kbd>z</kbd> | <kbd>⌘</kbd>+<kbd>z</kbd> | Send Hex Code | `0x1f`
+  - <kbd>Command</kbd>-<kbd>z</kbd> | <kbd>Control</kbd>-<kbd>-</kbd> | <kbd>⌘</kbd>-<kbd>z</kbd> | <kbd>⌃</kbd>-<kbd>-</kbd> | Send Hex Code | `0x1f`
 
 - **Redo** typically not bound in bash, zsh or readline, so we can set it to a unused hexcode which we can then fix in zsh
 
-  - <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>z</kbd> | <kbd>Command</kbd>+<kbd>y</kbd> | <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>z</kbd> | <kbd>⌘</kbd>+<kbd>y</kbd> | Send Hex Code | `0x18 0x1f`
+  - <kbd>Shift</kbd>-<kbd>Command</kbd>-<kbd>z</kbd> | <kbd>Command</kbd>-<kbd>y</kbd> | <kbd>Control</kbd>-<kbd>x</kbd>+<kbd>Control</kbd>-<kbd>-</kbd> | <kbd>⇧</kbd>-<kbd>⌘</kbd>-<kbd>z</kbd> | <kbd>⌘</kbd>-<kbd>y</kbd> | <kbd>⌃</kbd>-<kbd>x</kbd>+<kbd>⌃</kbd>-<kbd>-</kbd> | Send Hex Code | `0x18 0x1f`
 
 Now how to fix any that don't work
 
-For zsh, you can setup binding for the not yet functional <kbd>⌘</kbd>+<kbd>←Delete</kbd> and <kbd>⇧</kbd>+<kbd>⌘</kbd>+<kbd>Z</kbd>/<kbd>⌘</kbd>+<kbd>y</kbd> by running:
+For zsh, you can setup binding for the not yet functional <kbd>⌘</kbd>-<kbd>←Delete</kbd> and <kbd>⇧</kbd>-<kbd>⌘</kbd>-<kbd>Z</kbd>/<kbd>⌘</kbd>-<kbd>y</kbd> by running:
 
 ```sh
 # changes hex 0x15 to delete everything to the left of the cursor,
