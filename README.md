@@ -35,7 +35,7 @@ echo 'Control V Fn Backspace' | xxd
 |    Key    | Unicode |                  Type                  | Hex Code | Escape Sequence |
 | :-------: | :-----: | :------------------------------------: | :------: | :-------------: |
 | Backspace |    ⌫    | <kbd>Backspace</kbd> \| <kbd>←Delete</kbd> |  `0x08`  |      `^H`      |
-|    Del    |    ⌦    | <kbd>Delete</kbd> \| <kbd>Delete→</kbd> |  `0x7f`  |      `^?` | `^[[3~`      |
+|    Del    |    ⌦    | <kbd>Delete</kbd> \| <kbd>Delete→</kbd> |  `0x7f`  |      `^?` \| `^[[3~`      |
 |   Shift   |    ⇧    | <kbd>Shift</kbd> | | |
 |    Fn     |         |             <kbd>fn</kbd>              |          |                 |
 |  Control  |    ⌃    |           <kbd>Control</kbd>           |          | `^` |
