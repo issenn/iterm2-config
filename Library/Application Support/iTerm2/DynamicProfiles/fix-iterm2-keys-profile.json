@@ -1,7 +1,7 @@
 {
   "Profiles" : [
     {
-      "Name" : "MacOS Keys Test",
+      "Name" : "MacOS Keys",
       "Guid" : "3E2CA0BB-C7DD-4601-BB67-0DA6A9DEB628",
       "Unlimited Scrollback" : true,
       "Option Key Sends" : 2,
