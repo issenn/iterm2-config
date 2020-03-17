@@ -16,6 +16,12 @@
 	<string>A7B64E8D-F318-4DF9-B184-0340DB12A443</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
+	<key>Hotkey</key>
+	<true/>
+	<key>HotkeyChar</key>
+	<integer>46</integer>
+	<key>HotkeyCode</key>
+	<integer>47</integer>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>NSQuotedKeystrokeBinding</key>
