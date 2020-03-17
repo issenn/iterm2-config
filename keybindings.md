@@ -7,15 +7,15 @@
   - <kbd>⌥</kbd>+<kbd>→</kbd> | Send Escape Sequence | `f` | `\e[1;9C`
   - <kbd>⇧</kbd>+<kbd>⌥</kbd>+<kbd>→</kbd> | Send Escape Sequence | `\e[1;10C`
 - Beginning of the line
-  - `⌘←` | Send Hex Code | `0x01` | Send Escape Sequence | `[H`
+  - `⌘←` | Send Hex Code | `0x01` | Send Escape Sequence | `[H` | `OH`
 - End of the line
-  - `⌘→` | Send Hex Code | `0x05` | Send Escape Sequence | `[F`
+  - `⌘→` | Send Hex Code | `0x05` | Send Escape Sequence | `[F` | `OF`
 - Delete backward character
   - In modern systems, the backspace key is often mapped to the delete character (`0x7f` in ASCII or Unicode)
   - <kbd>Backspace</kbd> | <kbd>←Delete</kbd> | `U+232B` <kbd>⌫</kbd> ~~| Send Hex Code | `0x08`~~
   - <kbd>Control</kbd>+<kbd>H</kbd> | <kbd>⌃</kbd>+<kbd>H</kbd> | Send Hex Code | `0x08` | Send Escape Sequence | `^H`
 - Delete forward character
-  - <kbd>Delete</kbd> | <kbd>Delete→</kbd> | <kbd>⌦</kbd> | send hex code | `0x7F` | Send Escape Sequence | `^[[3~`
+  - <kbd>Delete</kbd> | <kbd>Delete→</kbd> | <kbd>⌦</kbd> | Send Hex Code | `0x7F` | Send Escape Sequence | `^[[3~`
   - <kbd>Fn</kbd>+<kbd>Backspace</kbd> | <kbd>Fn</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x7F` | Send Escape Sequence | `^[[3~`
   - <kbd>Control</kbd>+<kbd>?</kbd> | <kbd>⌃</kbd>+<kbd>?</kbd> | Send Hex Code | `0x7F` | Send Escape Sequence | `^?` ~~| `^[[3~`~~
   - <kbd>Control</kbd>+<kbd>Backspace</kbd> | <kbd>⌃</kbd>+<kbd>⌫</kbd> | Send Hex Code | `0x7F` ~~| Send Escape Sequence | `^[[3~`~~
@@ -41,6 +41,8 @@ Oh-my-zsh have made some changes to use `ZLE` which you can see talked about [is
 - End of the line `⌘→` | send escape sequence | `OF`
 
 
+> [American Standard Code for Information Interchange, ASCII](https://www.csee.umbc.edu/portal/help/theory/ascii.txt)
+>
 > [Delete character](https://en.wikipedia.org/wiki/Delete_character)
 >
 > [Backspace](https://en.wikipedia.org/wiki/Backspace)

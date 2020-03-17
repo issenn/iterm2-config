@@ -30,23 +30,29 @@ uuidgen
 ```sh
 echo 'Control V Fn Backspace' | od -c
 echo 'Control V Fn Backspace' | xxd
+xxd -psd
 ```
 
-|    Key    | Unicode |                  Type                  | Hex Code | Escape Sequence |
-| :-------: | :-----: | :------------------------------------: | :------: | :-------------: |
-| Backspace |    ⌫    | <kbd>Backspace</kbd> \| <kbd>←Delete</kbd> |  `0x08`  |      `^H`      |
-|    Del    |    ⌦    | <kbd>Delete</kbd> \| <kbd>Delete→</kbd> |  `0x7f`  |      `^?` \| `^[[3~`      |
-|   Shift   |    ⇧    | <kbd>Shift</kbd> | | |
-|    Fn     |         |             <kbd>fn</kbd>              |          |                 |
-|  Control  |    ⌃    |           <kbd>Control</kbd>           |          | `^` |
-|  Option   |    ⌥    |           <kbd>Option</kbd>            |  `0x1b`  |      `^[[1;9`      |
-|   Meta    |         |                                        |          |    `^[[1;3`     |
-|  Command  |    ⌘    |           <kbd>Command</kbd>           |          |                 |
-|   Left    | ← | <kbd>←</kbd> | `0x62` | |
-| Right | → | <kbd>→</kbd> | `0x66` | |
-| Up | ↑ | <kbd>↑</kbd> | | |
-| Down | ↓ | <kbd>↓</kbd> | | |
-| Escape | ⎋ | <kbd>esc</kbd> | | `^[` |
+|    Key    | Unicode |                  Type                  | Hex Code | Escape Sequence | Prefix |
+| :-------: | :-----: | :------------------------------------: | :------: | :-------------: | :-------: |
+| Backspace |    ⌫    | <kbd>Backspace</kbd> \| <kbd>←Delete</kbd> |  `0x08`  |      `^H`      |  |
+|    Del    |    ⌦    | <kbd>Delete</kbd> \| <kbd>Delete→</kbd> |  `0x7f`  |      `^?` \| `^[[3~`      |  |
+|   Shift   |    ⇧    | <kbd>Shift</kbd> | | | `^[[1;2` |
+|    Fn     |         |             <kbd>fn</kbd>              |          |                 |  |
+|  Control  |    ⌃    |           <kbd>Control</kbd>           |          | `^` | `^[[1;5` |
+|  Option   |    ⌥    |           <kbd>Option</kbd>            |    |            | `^[[1;9` |
+|   Meta    |         |                                        |          |         | `^[[1;3` |
+|  Command  |    ⌘    |           <kbd>Command</kbd>           |          |                 |  |
+|   Left    | ← | <kbd>←</kbd> | `0x62` | `b` | `D` |
+| Right | → | <kbd>→</kbd> | `0x66` | `f` | `C` |
+| Up | ↑ | <kbd>↑</kbd> | | | `A` |
+| Down | ↓ | <kbd>↓</kbd> | | | `B` |
+| Escape | ⎋ | <kbd>esc</kbd> | `0x1b` | `^[` |  |
+
+|       Key       | Unicode |                Type                 |  Prefix   |
+| :-------------: | :-----: | :---------------------------------: | :-------: |
+| Shift + Option  |   ⇧⌥    | <kbd>Shift</kbd>-<kbd>Option</kbd>  | `^[[1;10` |
+| Shift + Control |   ⇧⌃    | <kbd>Shift</kbd>-<kbd>Control</kbd> | `^[[1;6`  |
 
 ### Key mappings
 
