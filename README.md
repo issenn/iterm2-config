@@ -23,6 +23,31 @@ uuidgen
 
 ## Usage
 
+### ASCII
+
+#### How to show key code
+
+```sh
+echo 'Control V Fn Backspace' | od -c
+echo 'Control V Fn Backspace' | xxd
+```
+
+|    Key    | Unicode |                  Type                  | Hex Code | Escape Sequence |
+| :-------: | :-----: | :------------------------------------: | :------: | :-------------: |
+| Backspace |    ⌫    | <kbd>Backspace</kbd> \| <kbd>←Delete</kbd> |  `0x08`  |      `^H`      |
+|    Del    |    ⌦    | <kbd>Delete</kbd> \| <kbd>Delete→</kbd> |  `0x7f`  |      `^?` | `^[[3~`      |
+|   Shift   |    ⇧    | <kbd>Shift</kbd> | | |
+|    Fn     |         |             <kbd>fn</kbd>              |          |                 |
+|  Control  |    ⌃    |           <kbd>Control</kbd>           |          | `^` |
+|  Option   |    ⌥    |           <kbd>Option</kbd>            |  `0x1b`  |      `^[[1;9`      |
+|   Meta    |         |                                        |          |    `^[[1;3`     |
+|  Command  |    ⌘    |           <kbd>Command</kbd>           |          |                 |
+|   Left    | ← | <kbd>←</kbd> | `0x62` | |
+| Right | → | <kbd>→</kbd> | `0x66` | |
+| Up | ↑ | <kbd>↑</kbd> | | |
+| Down | ↓ | <kbd>↓</kbd> | | |
+| Escape | ⎋ | <kbd>esc</kbd> | | `^[` |
+
 ### Key mappings
 
 - **Delete all characters left of the cursor**
@@ -37,11 +62,11 @@ uuidgen
 
 - **Delete all characters right of the cursor**
   
-  - <kbd>Command</kbd>-<kbd>Del→</kbd> | <kbd>Command</kbd>-<kbd>fn</kbd>-<kbd>←Delete</kbd> | <kbd>⌘</kbd>-<kbd>⌦</kbd> | Send Hex Code | `0x0b`
+  - <kbd>Command</kbd>-<kbd>Del→</kbd> | <kbd>Command</kbd>-<kbd>fn</kbd>-<kbd>←Delete</kbd> | <kbd>Control</kbd>-<kbd>k</kbd> | <kbd>⌘</kbd>-<kbd>⌦</kbd> | <kbd>⌃</kbd>-<kbd>k</kbd> | Send Hex Code | `0x0b`
 
 - **Delete one word to left of cursor**
   
-  - <kbd>Option</kbd>-<kbd>←Delete</kbd> | <kbd>⌥</kbd>-<kbd>⌫</kbd> | Send Hex Code | `0x1b 0x7f`
+  - <kbd>Option</kbd>-<kbd>←Delete</kbd> | <kbd>⌥</kbd>-<kbd>⌫</kbd> | Send Hex Code | `0x1b 0x7f` | Send Escape Sequence | `^[^?`
   
   - > `0x1b 0x08` Breaks in Elixir's IEX, seems to work fine everywhere else
     >
@@ -51,15 +76,15 @@ uuidgen
   
 - **Delete one word to right of cursor**
   
-  - <kbd>Option</kbd>-<kbd>Del→</kbd> | <kbd>Option</kbd>-<kbd>fn</kbd>-<kbd>←Delete</kbd> | <kbd>⌥</kbd>-<kbd>⌦</kbd> | Send Hex Code | `0x1b 0x64`
+  - <kbd>Option</kbd>-<kbd>Del→</kbd> | <kbd>Option</kbd>-<kbd>fn</kbd>-<kbd>←Delete</kbd> | <kbd>Option</kbd>-<kbd>d</kbd> | <kbd>⌥</kbd>-<kbd>⌦</kbd> | <kbd>⌥</kbd>-<kbd>d</kbd> | Send Hex Code | `0x1b 0x64`
 
 - **Move cursor to the front of line**
 
-  - <kbd>Command</kbd>-<kbd>Left</kbd> | <kbd>⌘</kbd>-<kbd>←</kbd> | Send Hex Code | `0x01`
+  - <kbd>Command</kbd>-<kbd>Left</kbd> | <kbd>Control</kbd>-<kbd>a</kbd> | <kbd>⌘</kbd>-<kbd>←</kbd> | <kbd>⌃</kbd>-<kbd>a</kbd> | Send Hex Code | `0x01`
   
 - **Move cursor to the end of line**
 
-  - <kbd>Command</kbd>-<kbd>Right</kbd> | <kbd>⌘</kbd>-<kbd>→</kbd> | Send Hex Code | `0x05`
+  - <kbd>Command</kbd>-<kbd>Right</kbd> | <kbd>Control</kbd>-<kbd>e</kbd> | <kbd>⌘</kbd>-<kbd>→</kbd> | <kbd>⌃</kbd>-<kbd>e</kbd> | Send Hex Code | `0x05`
 
 - **Move cursor one word left**
 
