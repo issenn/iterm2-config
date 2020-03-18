@@ -3,7 +3,7 @@
     {
       "Name" : "MacOS Colors Solarized Dark",
       "Guid" : "4BB31F6E-F515-46C6-85FB-B07EADDA3C39",
-      "Dynamic Profile Parent Name": "MacOS Base",
+      "Dynamic Profile Parent Name" : "MacOS Keys",
       "Use Bright Bold" : true,
       "Use Tab Color" : false,
       "Brighten Bold Text" : true,
