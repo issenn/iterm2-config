@@ -1,8 +1,9 @@
 {
   "Profiles" : [
     {
-      "Name" : "MacOS Keys",
+      "Name" : "MacOS Base",
       "Guid" : "3E2CA0BB-C7DD-4601-BB67-0DA6A9DEB628",
+      "Dynamic Profile Parent Name": "Default",
       "Normal Font" : "MesloLGSNer-Regular 14",
       "Non Ascii Font" : "MesloLGSNer-Regular 14",
       "Use Non-ASCII Font" : true,
@@ -143,7 +144,7 @@
           "Text": "0x1b 0x1b 0x5b 0x42"
         }
       },
-      "Has Hotkey" : true,
+      "Has Hotkey" : false,
       "HotKey Characters" : "s",
       "HotKey Key Code" : 1,
       "HotKey Modifier Flags" : 1048576,
