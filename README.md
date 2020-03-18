@@ -23,6 +23,19 @@ uuidgen
 
 ## Usage
 
+### Preferences
+
+```sh
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/Library/Preferences/"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+defaults read com.googlecode.iterm2 PrefsCustomFolder
+defaults read com.googlecode.iterm2 LoadPrefsFromCustomFolder
+
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string ""
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool false
+```
+
 ### ASCII
 
 #### How to show key code
