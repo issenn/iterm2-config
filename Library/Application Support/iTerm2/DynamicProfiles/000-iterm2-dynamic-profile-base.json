@@ -1,0 +1,90 @@
+{
+  "Profiles" : [
+    {
+      "Name" : "MacOS Base",
+      "Guid" : "3E2CA0BB-C7DD-4601-BB67-0DA6A9DEB628",
+      "Dynamic Profile Parent Name" : "Default",
+      "Normal Font" : "MesloLGSNer-Regular 14",
+      "Non Ascii Font" : "MesloLGSNer-Regular 14",
+      "Use Non-ASCII Font" : true,
+      "Only The Default BG Color Uses Transparency" : false,
+      "Transparency" : 0.90000000000000002,
+      "Blur" : true,
+      "Blur Radius" : 30,
+      "Background Image Location" : "",
+      "Background Image Mode" : 2,
+      "Blend" : 1,
+      "Unlimited Scrollback" : true,
+      "Silence Bell" : true,
+      "Show Status Bar" : true,
+      "Status Bar Layout" : {
+        "components" : [
+          {
+            "class" : "iTermStatusBarCPUUtilizationComponent",
+            "configuration" : {
+              "knobs" : {
+                "base: priority" : 5,
+                "base: compression resistance" : 1,
+                "shared text color" : {
+                  "Red Component" : 0.90000000000000002,
+                  "Color Space" : "sRGB",
+                  "Blue Component" : 0.63,
+                  "Alpha Component" : 1,
+                  "Green Component" : 0.63
+                }
+              },
+              "layout advanced configuration dictionary value" : {
+                "font" : ".AppleSystemUIFont 12",
+                "algorithm" : 0
+              }
+            }
+          },
+          {
+            "class" : "iTermStatusBarMemoryUtilizationComponent",
+            "configuration" : {
+              "knobs" : {
+                "base: priority" : 5,
+                "base: compression resistance" : 1,
+                "shared text color" : {
+                  "Red Component" : 0.63,
+                  "Color Space" : "sRGB",
+                  "Blue Component" : 0.63,
+                  "Alpha Component" : 1,
+                  "Green Component" : 0.90000000000000002
+                }
+              },
+              "layout advanced configuration dictionary value" : {
+                "font" : ".AppleSystemUIFont 12",
+                "algorithm" : 0
+              }
+            }
+          },
+          {
+            "class" : "iTermStatusBarNetworkUtilizationComponent",
+            "configuration" : {
+              "knobs" : {
+                "base: priority" : 5,
+                "base: compression resistance" : 1,
+                "shared text color" : {
+                  "Red Component" : 0.63,
+                  "Color Space" : "sRGB",
+                  "Blue Component" : 0.90000000000000002,
+                  "Alpha Component" : 1,
+                  "Green Component" : 0.63
+                }
+              },
+              "layout advanced configuration dictionary value" : {
+                "font" : ".AppleSystemUIFont 12",
+                "algorithm" : 0
+              }
+            }
+          }
+        ],
+        "advanced configuration" : {
+          "font" : ".AppleSystemUIFont 12",
+          "algorithm" : 0
+        }
+      }
+    }
+  ]
+}

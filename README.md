@@ -35,6 +35,8 @@ defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_se
 defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool false
 defaults write com.googlecode.iterm2 SUSendProfileInfo -bool false
 defaults write com.googlecode.iterm2 DynamicProfilesPath -string "~/.config/iterm2/DynamicProfiles"
+defaults write com.googlecode.iterm2 NoSyncDynamicProfileChangeWillBeLost_SilenceUntil -float 31536000000000
+defaults write com.googlecode.iterm2 NoSyncDynamicProfileChangeWillBeLost_selection -int 0
 
 defaults read com.googlecode.iterm2 PrefsCustomFolder
 defaults read com.googlecode.iterm2 LoadPrefsFromCustomFolder
