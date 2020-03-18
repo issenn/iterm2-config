@@ -18,6 +18,8 @@
 	<string>manual</string>
 	<key>Default Bookmark Guid</key>
 	<string>A7B64E8D-F318-4DF9-B184-0340DB12A443</string>
+	<key>DynamicProfilesPath</key>
+	<string>~/.config/iterm2/DynamicProfiles</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>Hotkey</key>

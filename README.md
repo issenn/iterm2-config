@@ -26,8 +26,15 @@ uuidgen
 ### Preferences
 
 ```sh
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/Library/Preferences/"
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2/Preferences"
+# defaults write com.googlecode.iterm2 PrefsCustomFolder -string "http://issenn.ml/iterm2-config/Library/Preferences/com.googlecode.iterm2.plist"
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -bool true
+defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -int 1
+defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -bool false
+defaults write com.googlecode.iterm2 SUSendProfileInfo -bool false
+defaults write com.googlecode.iterm2 DynamicProfilesPath -string "~/.config/iterm2/DynamicProfiles"
 
 defaults read com.googlecode.iterm2 PrefsCustomFolder
 defaults read com.googlecode.iterm2 LoadPrefsFromCustomFolder

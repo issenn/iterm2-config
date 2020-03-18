@@ -31,3 +31,4 @@ _darcs
 .*\.md
 .*\.txt
 .*\.sh
+Library/.*
