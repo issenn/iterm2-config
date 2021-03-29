@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+
+time="$(date '+%Y-%m-%d_%H:%M:%S')"
+
+bin_dir="$(dirname -- "$(realpath $0)")"
+
+origin_file="${HOME}/Library/Preferences/com.googlecode.iterm2.plist"
+
+base_dir="$(dirname -- "$(dirname -- "$(realpath $0)")")"
+tmp_dir="${base_dir}/.tmp"
+bak_dir="${base_dir}/.bak"
+
+[[ -d "${tmp_dir}" ]] || mkdir -p "${tmp_dir}"
+[[ -d "${bak_dir}" ]] || mkdir -p "${bak_dir}"
+
+tmp_file="$(realpath ${tmp_dir}/com.googlecode.iterm2.plist)"
+bak_file="$(realpath ${bak_dir}/com.googlecode.iterm2.plist)"
+
+
+echo "${time}: For Iterm2 Preferences, copy a new Temp file."
+
+[[ -s "${origin_file}" ]] && cp -f "${origin_file}" "${tmp_file}"
+
+echo "${time}: Iterm2 Preferences Temp file copied."
+
+
+echo "${time}: For Iterm2 Preferences, convert from binary to xml."
+
+[[ -s "${tmp_file}" ]] && plutil -convert xml1 "${tmp_file}"
+
+echo "${time}: Convert finished. Now compare xml to find what's changed from Previous versions."
+
+
+echo "${time}: Temp File is "${tmp_file}" ."

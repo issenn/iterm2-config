@@ -1,0 +1,45 @@
+#!/usr/bin/env zsh
+
+
+time="$(date '+%Y-%m-%d_%H:%M:%S')"
+
+bin_dir="$(dirname -- "$(realpath $0)")"
+
+base_dir="$(dirname -- "$(dirname -- "$(realpath $0)")")"
+tmp_dir="${base_dir}/.tmp"
+bak_dir="${base_dir}/.bak"
+
+[[ -d "${tmp_dir}" ]] || mkdir -p "${tmp_dir}"
+[[ -d "${bak_dir}" ]] || mkdir -p "${bak_dir}"
+
+tmp_file="$(realpath ${tmp_dir}/com.googlecode.iterm2.plist)"
+compare_left_file="$(realpath ${bak_dir}/com.googlecode.iterm2.left.plist)"
+compare_right_file="$(realpath ${bak_dir}/com.googlecode.iterm2.right.plist)"
+
+
+"${bin_dir}"/convert
+
+
+echo "${time}: For Iterm2 Preferences, Create a Left Compare file."
+
+[[ -s "${tmp_file}" ]] && cp -f "${tmp_file}" "${compare_left_file}"
+
+echo "${time}: Iterm2 Preferences Left Compare file backed-up."
+
+
+# read -n 1 -s -r -p $"Press any key to continue...\n"
+read -k 1 -s -r "?Press any key to continue..."
+
+
+"${bin_dir}"/convert
+
+
+echo "${time}: For Iterm2 Preferences, Create a Right Compare file."
+
+[[ -s "${tmp_file}" ]] && cp -f "${tmp_file}" "${compare_right_file}"
+
+echo "${time}: Iterm2 Preferences Right Compare file backed-up."
+
+
+echo "${time}: Left Compare File is "${compare_left_file}" ."
+echo "${time}: Right Compare File is "${compare_right_file}" ."

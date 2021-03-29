@@ -34,4 +34,5 @@ _darcs
 
 .*\.txt
 .*\.sh
+bin/.*
 Library/.*

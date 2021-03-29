@@ -1,0 +1,29 @@
+#!/usr/bin/env zsh
+
+
+time="$(date '+%Y-%m-%d_%H:%M:%S')"
+
+bin_dir="$(dirname -- "$(realpath $0)")"
+
+base_dir="$(dirname -- "$(dirname -- "$(realpath $0)")")"
+tmp_dir="${base_dir}/.tmp"
+bak_dir="${base_dir}/.bak"
+
+[[ -d "${tmp_dir}" ]] || mkdir -p "${tmp_dir}"
+[[ -d "${bak_dir}" ]] || mkdir -p "${bak_dir}"
+
+tmp_file="$(realpath ${tmp_dir}/com.googlecode.iterm2.plist)"
+bak_file="$(realpath ${bak_dir}/com.googlecode.iterm2.${time}.plist)"
+
+
+"${bin_dir}"/convert
+
+
+echo "${time}: For Iterm2 Preferences, Create a Back-up file."
+
+[[ -s "${tmp_file}" ]] && cp -f "${tmp_file}" "${bak_file}"
+
+echo "${time}: Iterm2 Preferences backed-up."
+
+
+echo "${time}: Back-up File is "${bak_file}" ."
