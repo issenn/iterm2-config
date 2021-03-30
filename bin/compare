@@ -3,43 +3,51 @@
 
 time="$(date '+%Y-%m-%d_%H:%M:%S')"
 
+# read -n 1 -s -r -p $"Press any key to continue...\n"
+# vared -p "?Press any key to continue..." -c tmp
+pause() read -k 1 -s -r "?$*"$'\n'
+
 bin_dir="$(dirname -- "$(realpath $0)")"
 
 base_dir="$(dirname -- "$(dirname -- "$(realpath $0)")")"
 tmp_dir="${base_dir}/.tmp"
 bak_dir="${base_dir}/.bak"
 
-[[ -d "${tmp_dir}" ]] || mkdir -p "${tmp_dir}"
 [[ -d "${bak_dir}" ]] || mkdir -p "${bak_dir}"
 
 tmp_file="$(realpath ${tmp_dir}/com.googlecode.iterm2.plist)"
 compare_left_file="$(realpath ${bak_dir}/com.googlecode.iterm2.left.plist)"
 compare_right_file="$(realpath ${bak_dir}/com.googlecode.iterm2.right.plist)"
 
+[[ -s "${compare_left_file}" ]] && rm -f "${compare_left_file}"
+[[ -s "${compare_right_file}" ]] && rm -f "${compare_right_file}"
 
-"${bin_dir}"/convert
+
+[[ -s "${bin_dir}"/convert ]] || { echo "${time}: The bin/convert File doesn't exist."; exit 1; } && "${bin_dir}"/convert
+
+[[ $? -ne 0 ]] && { echo "${time}: The bin/convert execute failed."; exit 1; }  # Exit if non-zero exit code
 
 
 echo "${time}: For Iterm2 Preferences, Create a Left Compare file."
 
-[[ -s "${tmp_file}" ]] && cp -f "${tmp_file}" "${compare_left_file}"
+[[ -s "${tmp_file}" ]] || { echo "${time}: The Temp File doesn't exist."; exit 1; } && cp -f "${tmp_file}" "${compare_left_file}" || { echo "${time}: The Left Compare file copy failed."; exit 1; }
 
 echo "${time}: Iterm2 Preferences Left Compare file backed-up."
 
-
-# read -n 1 -s -r -p $"Press any key to continue...\n"
-read -k 1 -s -r "?Press any key to continue..."
+pause "Press any key to continue..."
 
 
-"${bin_dir}"/convert
+[[ -s "${bin_dir}"/convert ]] || { echo "${time}: The bin/convert File doesn't exist."; exit 1; } && "${bin_dir}"/convert
+
+[[ $? -ne 0 ]] && { echo "${time}: The bin/convert execute failed."; exit 1; }  # Exit if non-zero exit code
 
 
 echo "${time}: For Iterm2 Preferences, Create a Right Compare file."
 
-[[ -s "${tmp_file}" ]] && cp -f "${tmp_file}" "${compare_right_file}"
+[[ -s "${tmp_file}" ]] || { echo "${time}: The Temp File doesn't exist."; exit 1; } && cp -f "${tmp_file}" "${compare_right_file}" || { echo "${time}: The Left Compare file copy failed."; exit 1; }
 
 echo "${time}: Iterm2 Preferences Right Compare file backed-up."
 
 
-echo "${time}: Left Compare File is "${compare_left_file}" ."
-echo "${time}: Right Compare File is "${compare_right_file}" ."
+[[ -s "${compare_left_file}" ]] || { echo "${time}: The Left Compare File doesn't exist."; exit 1; } && echo "${time}: The Left Compare File is "${compare_left_file}" ."
+[[ -s "${compare_right_file}" ]] || { echo "${time}: The Right Compare File doesn't exist."; exit 1; } && echo "${time}: The Right Compare File is "${compare_right_file}" ."
