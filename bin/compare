@@ -3,9 +3,16 @@
 
 time="$(date '+%Y-%m-%d_%H:%M:%S')"
 
-# read -n 1 -s -r -p $"Press any key to continue...\n"
+log() echo "[$(date '+%Y-%m-%d %H:%M:%S')]: $*"
+
+# bash
+# pause() {
+#   read -n 1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
+# }
+# zsh
 # vared -p "?Press any key to continue..." -c tmp
 pause() read -k 1 -s -r "?$*"$'\n'
+confirm() read -q -s -r REPLY\?"$*"$'\n'
 
 bin_dir="$(dirname -- "$(realpath $0)")"
 
@@ -19,35 +26,43 @@ tmp_file="$(realpath ${tmp_dir}/com.googlecode.iterm2.plist)"
 compare_left_file="$(realpath ${bak_dir}/com.googlecode.iterm2.left.plist)"
 compare_right_file="$(realpath ${bak_dir}/com.googlecode.iterm2.right.plist)"
 
-[[ -s "${compare_left_file}" ]] && rm -f "${compare_left_file}"
-[[ -s "${compare_right_file}" ]] && rm -f "${compare_right_file}"
 
+[[ -s "${compare_left_file}" ]] && confirm "Press Y/y to delete old file ..." && { rm -f "${compare_left_file}"; log "Delete it."; } || log "Keep it."
 
-[[ -s "${bin_dir}"/convert ]] || { echo "${time}: The bin/convert File doesn't exist."; exit 1; } && "${bin_dir}"/convert
+if [[ ! -s "${compare_left_file}" ]]; then
 
-[[ $? -ne 0 ]] && { echo "${time}: The bin/convert execute failed."; exit 1; }  # Exit if non-zero exit code
+  [[ -s "${bin_dir}"/convert ]] || { log "The bin/convert File doesn't exist."; exit 1; } && "${bin_dir}"/convert
 
+  [[ $? -ne 0 ]] && { log "The bin/convert execute failed."; exit 1; }  # Exit if non-zero exit code
 
-echo "${time}: For Iterm2 Preferences, Create a Left Compare file."
+  log "For Iterm2 Preferences, Create a Left Compare file."
 
-[[ -s "${tmp_file}" ]] || { echo "${time}: The Temp File doesn't exist."; exit 1; } && cp -f "${tmp_file}" "${compare_left_file}" || { echo "${time}: The Left Compare file copy failed."; exit 1; }
+  [[ -s "${tmp_file}" ]] || { log "The Temp File doesn't exist."; exit 1; } && cp "${tmp_file}" "${compare_left_file}" || { log "The Left Compare file copy failed."; exit 1; }
 
-echo "${time}: Iterm2 Preferences Left Compare file backed-up."
+  log "Iterm2 Preferences Left Compare file backed-up."
+
+fi
+
 
 pause "Press any key to continue..."
 
 
-[[ -s "${bin_dir}"/convert ]] || { echo "${time}: The bin/convert File doesn't exist."; exit 1; } && "${bin_dir}"/convert
+[[ -s "${compare_right_file}" ]] && confirm "Press Y/y to delete old file ..." && { rm -f "${compare_right_file}"; log "Delete it."; } || log "Keep it."
 
-[[ $? -ne 0 ]] && { echo "${time}: The bin/convert execute failed."; exit 1; }  # Exit if non-zero exit code
+if [[ ! -s "${compare_right_file}" ]]; then
+
+  [[ -s "${bin_dir}"/convert ]] || { log "The bin/convert File doesn't exist."; exit 1; } && "${bin_dir}"/convert
+
+  [[ $? -ne 0 ]] && { log "The bin/convert execute failed."; exit 1; }  # Exit if non-zero exit code
+
+  log "For Iterm2 Preferences, Create a Right Compare file."
+
+  [[ -s "${tmp_file}" ]] || { log "The Temp File doesn't exist."; exit 1; } && cp "${tmp_file}" "${compare_right_file}" || { log "The Left Compare file copy failed."; exit 1; }
+
+  log "Iterm2 Preferences Right Compare file backed-up."
+
+fi
 
 
-echo "${time}: For Iterm2 Preferences, Create a Right Compare file."
-
-[[ -s "${tmp_file}" ]] || { echo "${time}: The Temp File doesn't exist."; exit 1; } && cp -f "${tmp_file}" "${compare_right_file}" || { echo "${time}: The Left Compare file copy failed."; exit 1; }
-
-echo "${time}: Iterm2 Preferences Right Compare file backed-up."
-
-
-[[ -s "${compare_left_file}" ]] || { echo "${time}: The Left Compare File doesn't exist."; exit 1; } && echo "${time}: The Left Compare File is "${compare_left_file}" ."
-[[ -s "${compare_right_file}" ]] || { echo "${time}: The Right Compare File doesn't exist."; exit 1; } && echo "${time}: The Right Compare File is "${compare_right_file}" ."
+[[ -s "${compare_left_file}" ]] || { log "The Left Compare File doesn't exist."; exit 1; } && log "The Left Compare File is "${compare_left_file}" ."
+[[ -s "${compare_right_file}" ]] || { log "The Right Compare File doesn't exist."; exit 1; } && log "The Right Compare File is "${compare_right_file}" ."
