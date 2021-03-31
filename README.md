@@ -12,11 +12,13 @@
 ## GUID
 
 Default Bookmark Guid
+
 ```sh
 defaults read com.googlecode.iterm2 "Default Bookmark Guid"
 ```
 
 One easy way to generate a Guid is to use the uuidgen program, which comes standard with macOS.
+
 ```sh
 uuidgen
 ```
@@ -37,7 +39,9 @@ defaults write com.googlecode.iterm2 SUSendProfileInfo -bool false
 defaults write com.googlecode.iterm2 DynamicProfilesPath -string "~/.config/iterm2/DynamicProfiles"
 defaults write com.googlecode.iterm2 NoSyncDynamicProfileChangeWillBeLost_SilenceUntil -float 31536000000000
 defaults write com.googlecode.iterm2 NoSyncDynamicProfileChangeWillBeLost_selection -int 0
+```
 
+```sh
 defaults read com.googlecode.iterm2 PrefsCustomFolder
 defaults read com.googlecode.iterm2 LoadPrefsFromCustomFolder
 
