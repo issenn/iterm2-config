@@ -1,5 +1,11 @@
 # iterm2-config
 
+```sh
+brew reinstall iterm2 && brew uninstall --zap iterm2 && brew install iterm2
+
+stow .keep
+stow iterm2-config
+```
 
 > [Dynamic Profiles](https://www.iterm2.com/documentation-dynamic-profiles.html)
 >
@@ -158,4 +164,3 @@ $ source ~/.zshrc
 ## issues
 
 - [Dynamic profiles](https://gitlab.com/gnachman/iterm2/issues/4115)
-
