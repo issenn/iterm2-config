@@ -1,0 +1,37 @@
+{
+  "Profiles" : [
+    {
+      "Name" : "MacOS Custom Colors Solarized Dark",
+      "Guid" : "C653C108-52A1-403C-88AC-733EDDD52572",
+      "Dynamic Profile Parent Name" : "MacOS Colors Solarized Dark",
+      "Ansi 8 Color" : {
+        "Red Component" : 0.50196078431372548,
+        "Color Space" : "sRGB",
+        "Blue Component" : 0.50196078431372548,
+        "Alpha Component" : 1,
+        "Green Component" : 0.50196078431372548
+      },
+      "Foreground Color" : {
+        "Red Component" : 1,
+        "Color Space" : "sRGB",
+        "Blue Component" : 1,
+        "Alpha Component" : 1,
+        "Green Component" : 1
+      },
+      "Selected Text Color" : {
+        "Red Component" : 0,
+        "Color Space" : "sRGB",
+        "Blue Component" : 0,
+        "Alpha Component" : 1,
+        "Green Component" : 0
+      },
+      "Selection Color" : {
+        "Red Component" : 1,
+        "Color Space" : "sRGB",
+        "Blue Component" : 1,
+        "Alpha Component" : 1,
+        "Green Component" : 1
+      }
+    }
+  ]
+}
